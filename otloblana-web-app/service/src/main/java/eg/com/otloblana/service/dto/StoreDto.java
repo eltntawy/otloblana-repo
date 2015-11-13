@@ -12,7 +12,7 @@ public class StoreDto implements java.io.Serializable {
 
 	private int id;
 	private String name;
-	private Set priceLists = new HashSet(0);
+	private Set priceListDtos = new HashSet(0);
 
 	public StoreDto() {
 	}
@@ -22,10 +22,10 @@ public class StoreDto implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public StoreDto(int id, String name, Set priceLists) {
+	public StoreDto(int id, String name, Set priceListDtos) {
 		this.id = id;
 		this.name = name;
-		this.priceLists = priceLists;
+		this.priceListDtos = priceListDtos;
 	}
 
 	public int getId() {
@@ -44,12 +44,12 @@ public class StoreDto implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public Set getPriceLists() {
-		return this.priceLists;
+	public Set getPriceListDtos() {
+		return this.priceListDtos;
 	}
 
-	public void setPriceLists(Set priceLists) {
-		this.priceLists = priceLists;
+	public void setPriceListDtos(Set priceListDtos) {
+		this.priceListDtos = priceListDtos;
 	}
 
 }

@@ -13,7 +13,7 @@ public class SizeDto implements java.io.Serializable {
 	private int id;
 	private String nameAr;
 	private String nameEn;
-	private Set orderDetails = new HashSet(0);
+	private Set orderDetailDtos = new HashSet(0);
 
 	public SizeDto() {
 	}
@@ -24,11 +24,11 @@ public class SizeDto implements java.io.Serializable {
 		this.nameEn = nameEn;
 	}
 
-	public SizeDto(int id, String nameAr, String nameEn, Set orderDetails) {
+	public SizeDto(int id, String nameAr, String nameEn, Set orderDetailDtos) {
 		this.id = id;
 		this.nameAr = nameAr;
 		this.nameEn = nameEn;
-		this.orderDetails = orderDetails;
+		this.orderDetailDtos = orderDetailDtos;
 	}
 
 	public int getId() {
@@ -55,12 +55,12 @@ public class SizeDto implements java.io.Serializable {
 		this.nameEn = nameEn;
 	}
 
-	public Set getOrderDetails() {
-		return this.orderDetails;
+	public Set getOrderDetailDtos() {
+		return this.orderDetailDtos;
 	}
 
-	public void setOrderDetails(Set orderDetails) {
-		this.orderDetails = orderDetails;
+	public void setOrderDetailDtos(Set orderDetailDtos) {
+		this.orderDetailDtos = orderDetailDtos;
 	}
 
 }

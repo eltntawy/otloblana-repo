@@ -13,8 +13,8 @@ public class ProductDto implements java.io.Serializable {
 	private int id;
 	private CategoryDto categoryDto;
 	private String name;
-	private Set priceLists = new HashSet(0);
-	private Set orderDetails = new HashSet(0);
+	private Set priceListDtos = new HashSet(0);
+	private Set orderDetailDtos = new HashSet(0);
 
 	public ProductDto() {
 	}
@@ -25,13 +25,13 @@ public class ProductDto implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public ProductDto(int id, CategoryDto categoryDto, String name, Set priceLists,
-					  Set orderDetails) {
+	public ProductDto(int id, CategoryDto categoryDto, String name, Set priceListDtos,
+					  Set orderDetailDtos) {
 		this.id = id;
 		this.categoryDto = categoryDto;
 		this.name = name;
-		this.priceLists = priceLists;
-		this.orderDetails = orderDetails;
+		this.priceListDtos = priceListDtos;
+		this.orderDetailDtos = orderDetailDtos;
 	}
 
 	public int getId() {
@@ -58,20 +58,20 @@ public class ProductDto implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public Set getPriceLists() {
-		return this.priceLists;
+	public Set getPriceListDtos() {
+		return this.priceListDtos;
 	}
 
-	public void setPriceLists(Set priceLists) {
-		this.priceLists = priceLists;
+	public void setPriceListDtos(Set priceListDtos) {
+		this.priceListDtos = priceListDtos;
 	}
 
-	public Set getOrderDetails() {
-		return this.orderDetails;
+	public Set getOrderDetailDtos() {
+		return this.orderDetailDtos;
 	}
 
-	public void setOrderDetails(Set orderDetails) {
-		this.orderDetails = orderDetails;
+	public void setOrderDetailDtos(Set orderDetailDtos) {
+		this.orderDetailDtos = orderDetailDtos;
 	}
 
 }

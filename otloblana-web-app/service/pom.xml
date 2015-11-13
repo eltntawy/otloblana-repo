@@ -34,6 +34,14 @@
         </dependency>
 
 
+        <!--  Junit Test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- JPA for Java EE application servers  -->
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
