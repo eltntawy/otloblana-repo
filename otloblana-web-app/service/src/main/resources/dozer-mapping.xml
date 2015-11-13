@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <configuration>
+        <stop-on-errors>true</stop-on-errors>
+        <date-format>dd/MM/yyyy HH:mm</date-format>
+        <wildcard>true</wildcard>
+    </configuration>
+
+    <mapping>
+        <class-a>eg.com.otloblana.service.entity.AddonEntity</class-a>
+        <class-b>eg.com.otloblana.service.dto.AddonDto</class-b>
+        <filed>
+            <a>orderDetailEntities</a>
+            <b>orderDetailDtos</b>
+        </filed>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.service.entity.UserEntity</class-a>
+        <class-b>eg.com.otloblana.service.dto.UserDto</class-b>
+
+        <filed>
+            <a>groupEntities</a>
+            <b>groupDtos</b>
+        </filed>
+
+        <filed>
+            <a>memberEntities</a>
+            <b>memberDtos</b>
+        </filed>
+
+        <filed>
+            <a>orderEntities</a>
+            <b>orderDtos</b>
+        </filed>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.service.entity.CategoryEntity</class-a>
+        <class-b>eg.com.otloblana.service.dto.CategoryDto</class-b>
+
+        <filed>
+            <a>productEntities</a>
+            <b>productDtos</b>
+        </filed>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.service.entity.GroupEntity</class-a>
+        <class-b>eg.com.otloblana.service.dto.GroupDto</class-b>
+
+        <filed>
+            <a>userEntity</a>
+            <b>userDto</b>
+        </filed>
+
+        <filed>
+            <a>memberEntities</a>
+            <b>memberDtos</b>
+        </filed>
+    </mapping>
+<!-- //////////////////////////////////////////////////////////////////// -->
+    <mapping>
+        <class-a>eg.com.otloblana.service.entity.MemberEntity</class-a>
+        <class-b>eg.com.otloblana.service.dto.MemberDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.service.entity.OrderDetailEntity</class-a>
+        <class-b>eg.com.otloblana.service.dto.OrderDetailDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.service.entity.OrderEntity</class-a>
+        <class-b>eg.com.otloblana.service.dto.OrderDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.service.entity.PriceListEntity</class-a>
+        <class-b>eg.com.otloblana.service.dto.PriceListDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.service.entity.ProductEntity</class-a>
+        <class-b>eg.com.otloblana.service.dto.ProductDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.service.entity.SizeEntity</class-a>
+        <class-b>eg.com.otloblana.service.dto.SizeDto</class-b>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.service.entity.StoreEntity</class-a>
+        <class-b>eg.com.otloblana.service.dto.StoreDto</class-b>
+    </mapping>
+
+
+</mappings>

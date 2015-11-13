@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>eg.com.otloblana</groupId>
+        <artifactId>otloblana</artifactId>
+        <version>0.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>service</artifactId>
+    <packaging>ejb</packaging>
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <ejbVersion>3.0</ejbVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>eg.com.otloblana</groupId>
+            <artifactId>common</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+
+        <!-- JPA for Java EE application servers  -->
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa</artifactId>
+            <version>2.5.1</version>
+
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.10</version>
+        </dependency>
+
+        <!--parsing xml lib-->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.8.1</version>
+        </dependency>
+
+
+        <!--google gcm lib-->
+        <dependency>
+            <groupId>com.ganyo</groupId>
+            <artifactId>gcm-server</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+        <!--Dozer-->
+        <dependency>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
+            <version>5.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-hibernate4</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>

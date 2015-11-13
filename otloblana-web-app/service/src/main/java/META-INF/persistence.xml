@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="persistenceUnit">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>eg.com.otloblana.service.entity.AddonEntity</class>
+        <class>eg.com.otloblana.service.entity.CategoryEntity</class>
+        <class>eg.com.otloblana.service.entity.GroupEntity</class>
+        <class>eg.com.otloblana.service.entity.MemberEntity</class>
+        <class>eg.com.otloblana.service.entity.OrderEntity</class>
+        <class>eg.com.otloblana.service.entity.OrderDetailEntity</class>
+        <class>eg.com.otloblana.service.entity.PriceListEntity</class>
+        <class>eg.com.otloblana.service.entity.ProductEntity</class>
+        <class>eg.com.otloblana.service.entity.SizeEntity</class>
+        <class>eg.com.otloblana.service.entity.StoreEntity</class>
+        <class>eg.com.otloblana.service.entity.UserEntity</class>
+
+        <properties>
+            <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/otloblana"/>
+            <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="eclipselink.jdbc.userEntity" value="root" />
+            <property name="eclipselink.jdbc.password" value="root"/>
+        </properties>
+    </persistence-unit>
+</persistence>
