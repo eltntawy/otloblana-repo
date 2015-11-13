@@ -22,33 +22,6 @@ public class EntityMappingTest {
 
     private Mapper mapper;
 
-    ProductEntity productEntity;
-    AddonEntity addonEntity;
-    CategoryEntity categoryEntity;
-    GroupEntity groupEntity;
-    MemberEntity memberEntity;
-    OrderEntity orderEntity;
-    OrderDetailEntity orderDetailEntity;
-    PriceListEntity priceListEntity;
-    SizeEntity sizeEntity;
-    StoreEntity storeEntity;
-    UserEntity userEntity;
-
-    public EntityMappingTest () {
-         productEntity = new ProductEntity();
-         addonEntity = new AddonEntity();
-         categoryEntity = new CategoryEntity();
-         groupEntity = new GroupEntity();
-         memberEntity = new MemberEntity();
-         orderEntity = new OrderEntity();
-         orderDetailEntity = new OrderDetailEntity();
-         priceListEntity = new PriceListEntity();
-         sizeEntity = new SizeEntity();
-         storeEntity = new StoreEntity();
-         userEntity = new UserEntity();
-    }
-
-
     @Before
     public void init() {
         DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
