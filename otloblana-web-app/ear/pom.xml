@@ -29,6 +29,13 @@
                     <modules>
                         <ejbModule>
                             <groupId>eg.com.otloblana</groupId>
+                            <artifactId>model</artifactId>
+                            <bundleFileName>model.jar</bundleFileName>
+
+                        </ejbModule>
+
+                        <ejbModule>
+                            <groupId>eg.com.otloblana</groupId>
                             <artifactId>service</artifactId>
                             <bundleFileName>service.jar</bundleFileName>
 
@@ -55,6 +62,13 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>eg.com.otloblana</groupId>
+            <artifactId>model</artifactId>
+            <version>0.1</version>
+            <type>ejb</type>
+        </dependency>
+
         <dependency>
             <groupId>eg.com.otloblana</groupId>
             <artifactId>service</artifactId>

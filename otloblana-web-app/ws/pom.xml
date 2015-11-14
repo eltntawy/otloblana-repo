@@ -15,18 +15,33 @@
     <url>http://otloblana.com.eg</url>
     <dependencies>
         <dependency>
-            <groupId>otloblana</groupId>
+            <groupId>eg.com.otloblana</groupId>
             <artifactId>common</artifactId>
             <version>0.1</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>otloblana</groupId>
+            <groupId>eg.com.otloblana</groupId>
+            <artifactId>model</artifactId>
+            <version>0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>eg.com.otloblana</groupId>
             <artifactId>service</artifactId>
             <version>0.1</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozer.sourceforge.net
+http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <configuration>
+        <stop-on-errors>true</stop-on-errors>
+        <date-format>dd/MM/yyyy HH:mm</date-format>
+        <wildcard>true</wildcard>
+    </configuration>
+
+    <mapping>
+        <class-a>eg.com.otloblana.model.entity.AddonEntity</class-a>
+        <class-b>eg.com.otloblana.model.dto.AddonDto</class-b>
+        <field>
+            <a>orderDetailEntities</a>
+            <b>orderDetailDtos</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.model.entity.UserEntity</class-a>
+        <class-b>eg.com.otloblana.model.dto.UserDto</class-b>
+
+        <field>
+            <a>groupEntities</a>
+            <b>groupDtos</b>
+        </field>
+
+        <field>
+            <a>memberEntities</a>
+            <b>memberDtos</b>
+        </field>
+
+        <field>
+            <a>orderEntities</a>
+            <b>orderDtos</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.model.entity.CategoryEntity</class-a>
+        <class-b>eg.com.otloblana.model.dto.CategoryDto</class-b>
+
+        <field>
+            <a>productEntities</a>
+            <b>productDtos</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.model.entity.GroupEntity</class-a>
+        <class-b>eg.com.otloblana.model.dto.GroupDto</class-b>
+
+        <field>
+            <a>userEntity</a>
+            <b>userDto</b>
+        </field>
+
+        <field>
+            <a>memberEntities</a>
+            <b>memberDtos</b>
+        </field>
+    </mapping>
+    <!-- //////////////////////////////////////////////////////////////////// -->
+    <mapping>
+        <class-a>eg.com.otloblana.model.entity.MemberEntity</class-a>
+        <class-b>eg.com.otloblana.model.dto.MemberDto</class-b>
+
+        <field>
+            <a>userEntity</a>
+            <b>userDto</b>
+        </field>
+
+        <field>
+            <a>groupEntity</a>
+            <b>groupDto</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.model.entity.OrderDetailEntity</class-a>
+        <class-b>eg.com.otloblana.model.dto.OrderDetailDto</class-b>
+
+        <field>
+            <a>orderEntity</a>
+            <b>orderDto</b>
+        </field>
+
+        <field>
+            <a>sizeEntity</a>
+            <b>sizeDto</b>
+        </field>
+
+        <field>
+            <a>addonEntity</a>
+            <b>addonDto</b>
+        </field>
+
+        <field>
+            <a>productEntity</a>
+            <b>productDto</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.model.entity.OrderEntity</class-a>
+        <class-b>eg.com.otloblana.model.dto.OrderDto</class-b>
+
+        <field>
+            <a>userEntity</a>
+            <b>userDto</b>
+        </field>
+
+        <field>
+            <a>orderDetailEntities</a>
+            <b>orderDetailDtos</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.model.entity.PriceListEntity</class-a>
+        <class-b>eg.com.otloblana.model.dto.PriceListDto</class-b>
+
+        <field>
+            <a>storeEntity</a>
+            <b>storeDto</b>
+        </field>
+
+        <field>
+            <a>productEntity</a>
+            <b>productDto</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.model.entity.ProductEntity</class-a>
+        <class-b>eg.com.otloblana.model.dto.ProductDto</class-b>
+
+        <field>
+            <a>categoryEntity</a>
+            <b>categoryDto</b>
+        </field>
+
+        <field>
+            <a>priceListEntities</a>
+            <b>priceListDtos</b>
+        </field>
+
+        <field>
+            <a>orderDetailEntities</a>
+            <b>orderDetailDtos</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.model.entity.SizeEntity</class-a>
+        <class-b>eg.com.otloblana.model.dto.SizeDto</class-b>
+
+        <field>
+            <a>orderDetailEntities</a>
+            <b>orderDetailDtos</b>
+        </field>
+    </mapping>
+
+    <mapping>
+        <class-a>eg.com.otloblana.model.entity.StoreEntity</class-a>
+        <class-b>eg.com.otloblana.model.dto.StoreDto</class-b>
+
+        <field>
+            <a>priceListEntities</a>
+            <b>priceListDtos</b>
+        </field>
+    </mapping>
+
+
+</mappings>
