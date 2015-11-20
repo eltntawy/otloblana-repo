@@ -4,7 +4,8 @@ package eg.com.otloblana.model.dto;
 
 import eg.com.otloblana.common.dto.GenericDto;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -15,7 +16,7 @@ public class OrderDto implements java.io.Serializable,GenericDto {
 	private int id;
 	private UserDto userDto;
 	private String number;
-	private Set orderDetailDtos = new HashSet(0);
+	private List<OrderDetailDto> orderDetailDtos = new ArrayList<OrderDetailDto>(0);
 
 	public OrderDto() {
 	}
@@ -25,7 +26,7 @@ public class OrderDto implements java.io.Serializable,GenericDto {
 		this.userDto = userDto;
 	}
 
-	public OrderDto(int id, UserDto userDto, String number, Set orderDetailDtos) {
+	public OrderDto(int id, UserDto userDto, String number, List<OrderDetailDto> orderDetailDtos) {
 		this.id = id;
 		this.userDto = userDto;
 		this.number = number;
@@ -56,11 +57,11 @@ public class OrderDto implements java.io.Serializable,GenericDto {
 		this.number = number;
 	}
 
-	public Set getOrderDetailDtos() {
+	public List getOrderDetailDtos() {
 		return this.orderDetailDtos;
 	}
 
-	public void setOrderDetailDtos(Set orderDetailDtos) {
+	public void setOrderDetailDtos(List orderDetailDtos) {
 		this.orderDetailDtos = orderDetailDtos;
 	}
 

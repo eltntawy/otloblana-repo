@@ -2,6 +2,7 @@ package eg.com.otloblana.ws;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 

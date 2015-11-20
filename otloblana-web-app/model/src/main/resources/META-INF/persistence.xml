@@ -4,7 +4,7 @@
     <persistence-unit name="otloblanaPersistenceUnit" transaction-type="JTA">
 
 
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
         <jta-data-source>java:/jdbc/otloblana/ds</jta-data-source>
 

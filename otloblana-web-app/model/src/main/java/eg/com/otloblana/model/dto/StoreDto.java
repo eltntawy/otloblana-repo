@@ -2,9 +2,11 @@ package eg.com.otloblana.model.dto;
 
 // Generated Nov 9, 2015 9:29:03 PM by Hibernate Tools 4.0.0
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import eg.com.otloblana.common.dto.GenericDto;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,7 +16,8 @@ public class StoreDto implements java.io.Serializable,GenericDto {
 
 	private int id;
 	private String name;
-	private Set priceListDtos = new HashSet(0);
+	@JsonIgnore
+	private List<PriceListDto> priceListDtos = new ArrayList<PriceListDto>(0);
 
 	public StoreDto() {
 	}
@@ -24,7 +27,7 @@ public class StoreDto implements java.io.Serializable,GenericDto {
 		this.name = name;
 	}
 
-	public StoreDto(int id, String name, Set priceListDtos) {
+	public StoreDto(int id, String name, List<PriceListDto> priceListDtos) {
 		this.id = id;
 		this.name = name;
 		this.priceListDtos = priceListDtos;
@@ -46,11 +49,11 @@ public class StoreDto implements java.io.Serializable,GenericDto {
 		this.name = name;
 	}
 
-	public Set getPriceListDtos() {
+	public List getPriceListDtos() {
 		return this.priceListDtos;
 	}
 
-	public void setPriceListDtos(Set priceListDtos) {
+	public void setPriceListDtos(List priceListDtos) {
 		this.priceListDtos = priceListDtos;
 	}
 

@@ -2,6 +2,7 @@ package eg.com.otloblana.model.dto;
 
 // Generated Nov 9, 2015 9:29:03 PM by Hibernate Tools 4.0.0
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import eg.com.otloblana.common.dto.GenericDto;
 
 /**
@@ -13,6 +14,7 @@ public class OrderDetailDto implements java.io.Serializable,GenericDto {
 	private AddonDto addonDto;
 	private OrderDto orderDto;
 	private SizeDto sizeDto;
+	@JsonIgnore
 	private ProductDto productDto;
 	private int qty;
 

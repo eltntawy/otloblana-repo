@@ -3,6 +3,7 @@ package eg.com.otloblana.model.dao;
 
 
 import eg.com.otloblana.common.Exception.DatabaseRollbackException;
+import eg.com.otloblana.model.entity.GroupEntity;
 import eg.com.otloblana.model.entity.UserEntity;
 
 import javax.ejb.Stateless;
@@ -11,6 +12,7 @@ import javax.ejb.TransactionAttributeType;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Mohamed on 2015/07/04.
@@ -78,5 +80,14 @@ public class UserDaoImpl extends GenericDaoImpl<UserEntity> implements UserDao {
         } catch (PersistenceException ex) {
             throw new DatabaseRollbackException(ex.getMessage());
         }
+    }
+
+    @Override
+    public Set<GroupEntity> getGroups(UserEntity userEntity) {
+
+        userEntity = entityManager.merge(userEntity);
+
+        return userEntity.getGroupEntities();
+
     }
 }

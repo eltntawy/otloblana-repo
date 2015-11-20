@@ -59,7 +59,9 @@ public class EntityMappingTest {
         ProductEntity productEntity = new ProductEntity();
         CategoryEntity categoryEntity = new CategoryEntity();
 
-        categoryEntity.setNameAr("Category Name");
+        String categoryName = "Category Name";
+
+        categoryEntity.setNameAr(categoryName);
 
         productEntity.setCategoryEntity(categoryEntity);
 
@@ -69,7 +71,7 @@ public class EntityMappingTest {
         Assert.assertNotNull(productDto);
 
         Assert.assertNotNull(productDto.getCategoryDto());
-        Assert.assertEquals(categoryEntity.getNameAr(),productDto.getCategoryDto().getNameAr());
+        Assert.assertEquals(categoryName,productDto.getCategoryDto().getNameAr());
 
     }
 

@@ -2,9 +2,12 @@ package eg.com.otloblana.model.dto;
 
 // Generated Nov 9, 2015 9:29:03 PM by Hibernate Tools 4.0.0
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import eg.com.otloblana.common.dto.GenericDto;
 
-import java.util.HashSet;
+import javax.persistence.criteria.Order;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -15,7 +18,8 @@ public class SizeDto implements java.io.Serializable ,GenericDto {
 	private int id;
 	private String nameAr;
 	private String nameEn;
-	private Set orderDetailDtos = new HashSet(0);
+	@JsonIgnore
+	private List<OrderDetailDto> orderDetailDtos = new ArrayList<OrderDetailDto>(0);
 
 	public SizeDto() {
 	}
@@ -26,7 +30,7 @@ public class SizeDto implements java.io.Serializable ,GenericDto {
 		this.nameEn = nameEn;
 	}
 
-	public SizeDto(int id, String nameAr, String nameEn, Set orderDetailDtos) {
+	public SizeDto(int id, String nameAr, String nameEn, List<OrderDetailDto> orderDetailDtos) {
 		this.id = id;
 		this.nameAr = nameAr;
 		this.nameEn = nameEn;
@@ -57,11 +61,11 @@ public class SizeDto implements java.io.Serializable ,GenericDto {
 		this.nameEn = nameEn;
 	}
 
-	public Set getOrderDetailDtos() {
+	public List getOrderDetailDtos() {
 		return this.orderDetailDtos;
 	}
 
-	public void setOrderDetailDtos(Set orderDetailDtos) {
+	public void setOrderDetailDtos(List orderDetailDtos) {
 		this.orderDetailDtos = orderDetailDtos;
 	}
 

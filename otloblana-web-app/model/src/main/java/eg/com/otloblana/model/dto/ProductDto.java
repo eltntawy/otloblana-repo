@@ -2,9 +2,11 @@ package eg.com.otloblana.model.dto;
 
 // Generated Nov 9, 2015 9:29:03 PM by Hibernate Tools 4.0.0
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import eg.com.otloblana.common.dto.GenericDto;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -15,8 +17,10 @@ public class ProductDto implements java.io.Serializable,GenericDto {
 	private int id;
 	private CategoryDto categoryDto;
 	private String name;
-	private Set priceListDtos = new HashSet(0);
-	private Set orderDetailDtos = new HashSet(0);
+	@JsonIgnore
+	private List<PriceListDto> priceListDtos = new ArrayList<PriceListDto>(0);
+	@JsonIgnore
+	private List<OrderDetailDto> orderDetailDtos = new ArrayList<OrderDetailDto>(0);
 
 	public ProductDto() {
 	}
@@ -27,8 +31,8 @@ public class ProductDto implements java.io.Serializable,GenericDto {
 		this.name = name;
 	}
 
-	public ProductDto(int id, CategoryDto categoryDto, String name, Set priceListDtos,
-					  Set orderDetailDtos) {
+	public ProductDto(int id, CategoryDto categoryDto, String name, List<PriceListDto> priceListDtos,
+					  List<OrderDetailDto> orderDetailDtos) {
 		this.id = id;
 		this.categoryDto = categoryDto;
 		this.name = name;
@@ -60,19 +64,19 @@ public class ProductDto implements java.io.Serializable,GenericDto {
 		this.name = name;
 	}
 
-	public Set getPriceListDtos() {
+	public List getPriceListDtos() {
 		return this.priceListDtos;
 	}
 
-	public void setPriceListDtos(Set priceListDtos) {
+	public void setPriceListDtos(List<PriceListDto> priceListDtos) {
 		this.priceListDtos = priceListDtos;
 	}
 
-	public Set getOrderDetailDtos() {
+	public List getOrderDetailDtos() {
 		return this.orderDetailDtos;
 	}
 
-	public void setOrderDetailDtos(Set orderDetailDtos) {
+	public void setOrderDetailDtos(List<OrderDetailDto> orderDetailDtos) {
 		this.orderDetailDtos = orderDetailDtos;
 	}
 

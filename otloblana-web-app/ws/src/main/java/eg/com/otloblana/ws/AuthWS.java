@@ -17,7 +17,7 @@ public class AuthWS {
     @Inject
     UserService userService;
 
-    @POST
+    @GET
     @Produces("application/json")
     public ResponseEntity<UserDto> getUser(@QueryParam("username") String username, @QueryParam("password") String password) {
 

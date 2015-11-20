@@ -2,13 +2,20 @@ package eg.com.otloblana.service;
 
 import eg.com.otloblana.common.Exception.DatabaseException;
 import eg.com.otloblana.common.Exception.ServiceException;
+import eg.com.otloblana.model.dao.GroupDao;
 import eg.com.otloblana.model.dao.UserDao;
+import eg.com.otloblana.model.dto.GroupDto;
 import eg.com.otloblana.model.dto.UserDto;
+import eg.com.otloblana.model.entity.GroupEntity;
 import eg.com.otloblana.model.entity.UserEntity;
 import eg.com.otloblana.model.util.MappingUtil;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Mohamed_2 on 11/14/2015.
@@ -16,20 +23,22 @@ import javax.ejb.Stateless;
 @Stateless
 public class UserService {
 
-    @EJB(beanName = "UserDaoImpl", beanInterface = UserDao.class)
-    private UserDao userDaoImplRef;
+    @EJB
+    private UserDao userDao;
 
-    @EJB(beanName = "MappingUtil", beanInterface = MappingUtil.class)
-    private MappingUtil mappingUtilRef;
+    @EJB
+    private MappingUtil mappingUtil;
 
+    @EJB(beanName = "GroupDaoImpl")
+    GroupDao groupDao ;
 
     public UserDto authenticateByEmail(String email, String password) throws ServiceException {
 
         UserEntity userEntity = null;
         try {
-            userEntity = userDaoImplRef.authenticateByEmail(email, password);
+            userEntity = userDao.authenticateByEmail(email, password);
 
-            UserDto userDto = mappingUtilRef.getDto(userEntity, UserDto.class);
+            UserDto userDto = mappingUtil.getDto(userEntity, UserDto.class);
 
             return userDto;
 
@@ -43,9 +52,9 @@ public class UserService {
 
         UserEntity userEntity = null;
         try {
-            userEntity = userDaoImplRef.authenticateByUsername(username, password);
+            userEntity = userDao.authenticateByUsername(username, password);
 
-            UserDto userDto = mappingUtilRef.getDto(userEntity, UserDto.class);
+            UserDto userDto = mappingUtil.getDto(userEntity, UserDto.class);
 
             return userDto;
         } catch (DatabaseException e) {
@@ -56,8 +65,8 @@ public class UserService {
 
     public UserDto getUserByEmail(String email) throws ServiceException {
         try {
-            UserEntity userEntity = userDaoImplRef.getUserByEmail(email);
-            UserDto userDto = mappingUtilRef.getDto(userEntity, UserDto.class);
+            UserEntity userEntity = userDao.getUserByEmail(email);
+            UserDto userDto = mappingUtil.getDto(userEntity, UserDto.class);
 
             return userDto;
         }catch (DatabaseException e) {
