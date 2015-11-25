@@ -20,12 +20,13 @@
         <class>eg.com.otloblana.model.entity.StoreEntity</class>
         <class>eg.com.otloblana.model.entity.UserEntity</class>
 
-        <!--<properties>-->
+        <properties>
             <!--<property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/otloblana"/>-->
             <!--<property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>-->
             <!--<property name="eclipselink.jdbc.userEntity" value="root" />-->
             <!--<property name="eclipselink.jdbc.password" value="root"/>-->
-        <!--</properties>-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+        </properties>
 
     </persistence-unit>
 </persistence>

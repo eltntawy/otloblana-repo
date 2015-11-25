@@ -1,17 +1,11 @@
 package eg.com.otloblana.common.util;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import eg.com.otloblana.common.dto.GenericDto;
 import eg.com.otloblana.common.rest.ResponseEntity;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.auth.AuthScope;
-import org.apache.http.auth.Credentials;
-import org.apache.http.auth.UsernamePasswordCredentials;
-import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpDelete;
@@ -19,18 +13,15 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.BasicCredentialsProvider;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.params.HttpParams;
 
-import javax.sound.sampled.Port;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Mohamed on 2015/07/11.
@@ -49,8 +40,11 @@ public class RestUtil {
 
     // HttpClient
     private HttpClient httpClient;
-    private Gson gson;
 
+    JsonUtil jsonUtil = JsonUtil.getInstance();
+
+
+    Logger log = Logger.getLogger(RestUtil.class.getName());
 
     private RestUtil(String host, int port, String contextPath) {
 
@@ -81,33 +75,26 @@ public class RestUtil {
 //        credsProvider.setCredentials(authScope, new UsernamePasswordCredentials(AUTH_USERNAME, AUTH_PASSWORD));
 //        Credentials credential = credsProvider.getCredentials(authScope);
 
-//        httpClient.getCredentialsProvider().setCredentials(authScope, credential);
-
-        GsonBuilder builder = new GsonBuilder();
-        builder.setDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz");
-
-        gson = builder.create();
+//        httpClient.getCredentialsProvider().setCredentials(authScope, credentie();
     }
 
 
     /***
      * @param url         service Url
-     * @param returnClass return type to convert from json
      * @return response object from web service
      * @throws IOException
      */
-    public <T> ResponseEntity get(String url, Class<T> returnClass) throws IOException {
-        return get(url, null, returnClass);
+    public  String get(String url) throws IOException {
+        return get(url, null);
     }
 
     /***
      * @param path         service path
      * @param params      send parameters
-     * @param returnClass return type to convert from json
      * @return response object from web service
      * @throws IOException
      */
-    public <T> ResponseEntity get(String path, List<NameValuePair> params, Class<T> returnClass) throws IOException {
+    public  String get(String path, List<NameValuePair> params) throws IOException {
 
         if (params != null) {
             path += getParamterAsString(params);
@@ -116,28 +103,26 @@ public class RestUtil {
         String url = WS_URL + path;
         HttpGet httpGet = new HttpGet(url);
 
-        return processedRequest(httpGet, returnClass);
+        return processedRequest(httpGet);
     }
 
     /***
      * @param path         service path
-     * @param returnClass return type to convert from json
      * @return response object from web service
      * @throws IOException
      */
-    public <T> ResponseEntity post(String path, Class<T> returnClass) throws IOException {
+    public String post(String path) throws IOException {
         String url = WS_URL + path;
-        return post(url, null, returnClass);
+        return post(url, null);
     }
 
     /***
      * @param path        service path
      * @param params      send parameters
-     * @param returnClass return type to convert from json
      * @return response object from web service
      * @throws IOException
      */
-    public <T> ResponseEntity post(String path, List<NameValuePair> params, Class<T> returnClass) throws IOException {
+    public String post(String path, List<NameValuePair> params) throws IOException {
         String url = WS_URL + path;
         HttpPost httpPost = new HttpPost(url);
 
@@ -145,7 +130,7 @@ public class RestUtil {
             httpPost.setEntity(new UrlEncodedFormEntity(params));
         }
 
-        return processedRequest(httpPost, returnClass);
+        return processedRequest(httpPost);
     }
 
 
@@ -154,7 +139,7 @@ public class RestUtil {
      * @return response object from web service
      * @throws IOException
      */
-    public ResponseEntity<String> delete(String path) throws IOException {
+    public String delete(String path) throws IOException {
         String url = WS_URL + path;
         return delete(url, null);
     }
@@ -166,7 +151,7 @@ public class RestUtil {
      * @return response object from web service
      * @throws IOException
      */
-    public ResponseEntity<String> delete(String path, List<NameValuePair> params) throws IOException {
+    public String delete(String path, List<NameValuePair> params) throws IOException {
 
 
         if (params != null) {
@@ -183,41 +168,21 @@ public class RestUtil {
     /***
      * @param path       web service path
      * @param sendObject the object will be converted to json then send it
-     * @param tClass     object class type
      * @return response object from web service
      * @throws IOException
      */
-    public <T> ResponseEntity<T> postJson(String path, GenericDto sendObject, Class<T> tClass) throws IOException {
+    public String postJson(String path, GenericDto sendObject) throws IOException {
 
         String url = WS_URL + path;
         HttpPost httpPost = new HttpPost(url);
 
-        String json = gson.toJson(sendObject);
+        String json = jsonUtil.toJson(sendObject);
         StringEntity entityJson = new StringEntity(json);
 
         httpPost.setEntity(entityJson);
         httpPost.addHeader("content-type", "application/json");
 
-        return processedRequest(httpPost, tClass);
-    }
-
-    /***
-     * @param requestBase request method like HttpPost or HttpGet
-     * @param tClass      object class type
-     * @return response object from web service
-     * @throws IOException
-     */
-    private <T> ResponseEntity<T> processedRequest(HttpRequestBase requestBase, Class<T> tClass) throws IOException {
-
-        HttpResponse response = httpClient.execute(requestBase);
-        HttpEntity entity = response.getEntity();
-        Reader reader = new InputStreamReader(entity.getContent());
-
-        Type type = new TypeToken<ResponseEntity<T>>() {}.getType();
-
-        ResponseEntity<T> responseEntity = gson.fromJson(reader, type);
-
-        return responseEntity;
+        return processedRequest(httpPost);
     }
 
     /***
@@ -225,17 +190,24 @@ public class RestUtil {
      * @return response object from web service
      * @throws IOException
      */
-    private ResponseEntity<String> processedRequest(HttpRequestBase requestBase) throws IOException {
+    private String processedRequest(HttpRequestBase requestBase) throws IOException {
+
+        log.log(Level.INFO,"RestUtil: Method " +requestBase.getMethod()+" - "+requestBase.getURI());
 
         HttpResponse response = httpClient.execute(requestBase);
         HttpEntity entity = response.getEntity();
         Reader reader = new InputStreamReader(entity.getContent());
 
-        Type type = new TypeToken<ResponseEntity>() {}.getType();
+        StringBuffer sb = new StringBuffer();
+        int ch ;
 
-        ResponseEntity<String> responseEntity = gson.fromJson(reader, type);
+        while( (ch = reader.read()) != -1) {
+            sb.append((char) ch);
+        }
 
-        return responseEntity;
+        log.log(Level.INFO,"RestUtil: response - "+sb.toString() );
+
+        return sb.toString();
     }
 
 
