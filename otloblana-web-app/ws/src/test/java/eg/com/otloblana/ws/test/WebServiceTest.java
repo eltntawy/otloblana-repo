@@ -53,6 +53,8 @@ public class WebServiceTest {
 
             Assert.assertNotNull(responseEntity);
 
+            Assert.assertTrue(responseEntity.isError());
+
             Assert.assertNotNull(responseEntity.getObject());
 
 

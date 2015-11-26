@@ -1,8 +1,6 @@
 package eg.com.otloblana.common.util;
 
-import com.google.gson.reflect.TypeToken;
 import eg.com.otloblana.common.dto.GenericDto;
-import eg.com.otloblana.common.rest.ResponseEntity;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -18,7 +16,6 @@ import org.apache.http.impl.client.HttpClients;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,14 +32,11 @@ public class RestUtil {
     private final String WS_URL;
 
     // Access Credentials
-    private static final String AUTH_USERNAME = "sms_blocker_user";
-    private static final String AUTH_PASSWORD = "$m$_blocker_p@$$w0rd";
+    private static final String AUTH_USERNAME = "username";
+    private static final String AUTH_PASSWORD = "p@$$w0rd";
 
     // HttpClient
     private HttpClient httpClient;
-
-    JsonUtil jsonUtil = JsonUtil.getInstance();
-
 
     Logger log = Logger.getLogger(RestUtil.class.getName());
 
@@ -162,27 +156,6 @@ public class RestUtil {
         HttpDelete httpDelete = new HttpDelete(url);
 
         return processedRequest(httpDelete);
-    }
-
-
-    /***
-     * @param path       web service path
-     * @param sendObject the object will be converted to json then send it
-     * @return response object from web service
-     * @throws IOException
-     */
-    public String postJson(String path, GenericDto sendObject) throws IOException {
-
-        String url = WS_URL + path;
-        HttpPost httpPost = new HttpPost(url);
-
-        String json = jsonUtil.toJson(sendObject);
-        StringEntity entityJson = new StringEntity(json);
-
-        httpPost.setEntity(entityJson);
-        httpPost.addHeader("content-type", "application/json");
-
-        return processedRequest(httpPost);
     }
 
     /***
