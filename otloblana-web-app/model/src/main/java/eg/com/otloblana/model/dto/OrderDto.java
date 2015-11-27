@@ -4,7 +4,9 @@ package eg.com.otloblana.model.dto;
 
 import eg.com.otloblana.common.dto.GenericDto;
 
+import javax.persistence.Column;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -16,6 +18,12 @@ public class OrderDto implements java.io.Serializable,GenericDto {
 	private int id;
 	private UserDto userDto;
 	private String number;
+	private Date createTime;
+	private Date timeToOrder;
+	private boolean isDelivered;
+	private boolean isOrdered;
+	private boolean isDraft;
+
 	private List<OrderDetailDto> orderDetailDtos = new ArrayList<OrderDetailDto>(0);
 
 	public OrderDto() {
@@ -65,4 +73,48 @@ public class OrderDto implements java.io.Serializable,GenericDto {
 		this.orderDetailDtos = orderDetailDtos;
 	}
 
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+
+	public Date getTimeToOrder() {
+		return timeToOrder;
+	}
+
+	public void setTimeToOrder(Date timeToOrder) {
+		this.timeToOrder = timeToOrder;
+	}
+
+
+	public boolean getIsDelivered() {
+		return isDelivered;
+	}
+
+	public void setIsDelivered(boolean isDelivered) {
+		this.isDelivered = isDelivered;
+	}
+
+
+	public boolean getIsOrdered() {
+		return isOrdered;
+	}
+
+	public void setIsOrdered(boolean isOrdered) {
+		this.isOrdered = isOrdered;
+	}
+
+
+	public boolean getIsDraft() {
+		return isDraft;
+	}
+
+	public void setIsDraft(boolean isDraft) {
+		this.isDraft = isDraft;
+	}
 }

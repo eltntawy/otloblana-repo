@@ -26,7 +26,7 @@ public class UserDto implements java.io.Serializable, GenericDto {
     @JsonIgnore
     private List <MemberDto> memberDtos = new ArrayList(0);
     @JsonIgnore
-    private List orderDtos = new ArrayList(0);
+    private List<OrderDto> orderDtos = new ArrayList(0);
 
     public UserDto() {
     }

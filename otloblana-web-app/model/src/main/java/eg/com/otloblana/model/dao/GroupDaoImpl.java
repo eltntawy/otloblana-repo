@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Created by Mohamed_2 on 11/20/2015.
  */
-@Stateless(mappedName = "groupDaoImpl")
+@Stateless(mappedName = "GroupDaoImpl")
 
 public class GroupDaoImpl extends GenericDaoImpl<GroupEntity> implements GroupDao {
     public GroupDaoImpl() {

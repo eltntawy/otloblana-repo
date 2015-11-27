@@ -4,6 +4,7 @@ package eg.com.otloblana.model.entity;
 
 import eg.com.otloblana.common.entity.GenericEntity;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -25,6 +26,12 @@ public class OrderEntity implements java.io.Serializable,GenericEntity {
 	private int id;
 	private UserEntity userEntity;
 	private String number;
+	private Date createTime;
+	private Date timeToOrder;
+	private boolean isDelivered;
+	private boolean isOrdered;
+	private boolean isDraft;
+
 	private Set<OrderDetailEntity> orderDetailEntities = new HashSet<OrderDetailEntity>(0);
 
 	public OrderEntity() {
@@ -80,4 +87,48 @@ public class OrderEntity implements java.io.Serializable,GenericEntity {
 		this.orderDetailEntities = orderDetailEntities;
 	}
 
+	@Column(name = "createTime")
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	@Column(name = "timeToOrder")
+	public Date getTimeToOrder() {
+		return timeToOrder;
+	}
+
+	public void setTimeToOrder(Date timeToOrder) {
+		this.timeToOrder = timeToOrder;
+	}
+
+	@Column(name = "isDelivered")
+	public boolean getIsDelivered() {
+		return isDelivered;
+	}
+
+	public void setIsDelivered(boolean isDelivered) {
+		this.isDelivered = isDelivered;
+	}
+
+	@Column(name = "isordered")
+	public boolean getIsOrdered() {
+		return isOrdered;
+	}
+
+	public void setIsOrdered(boolean isOrdered) {
+		this.isOrdered = isOrdered;
+	}
+
+	@Column(name = "isdraft")
+	public boolean getIsDraft() {
+		return isDraft;
+	}
+
+	public void setIsDraft(boolean isDraft) {
+		this.isDraft = isDraft;
+	}
 }

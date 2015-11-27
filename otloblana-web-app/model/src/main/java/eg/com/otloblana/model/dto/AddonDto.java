@@ -16,7 +16,7 @@ public class AddonDto implements java.io.Serializable,GenericDto {
 	private int id;
 	private String nameAr;
 	private String nameEn;
-	private List orderDetailDtos = new ArrayList(0);
+	private List<OrderDetailDto> orderDetailDtos = new ArrayList(0);
 
 	public AddonDto() {
 	}

@@ -26,7 +26,7 @@ public class UserService {
     @EJB
     private UserDao userDao;
 
-    @EJB
+    @EJB(beanName = "MappingUtil")
     private MappingUtil mappingUtil;
 
     @EJB(beanName = "GroupDaoImpl")

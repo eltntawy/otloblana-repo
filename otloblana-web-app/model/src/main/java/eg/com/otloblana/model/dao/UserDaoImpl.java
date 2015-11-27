@@ -17,7 +17,7 @@ import java.util.Set;
 /**
  * Created by Mohamed on 2015/07/04.
  */
-@Stateless(mappedName = "userDao")
+@Stateless(mappedName = "UserDaoImpl")
 public class UserDaoImpl extends GenericDaoImpl<UserEntity> implements UserDao {
 
 

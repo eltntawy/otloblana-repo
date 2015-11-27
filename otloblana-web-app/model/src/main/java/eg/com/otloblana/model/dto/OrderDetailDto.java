@@ -12,9 +12,11 @@ public class OrderDetailDto implements java.io.Serializable,GenericDto {
 
 	private int id;
 	private AddonDto addonDto;
-	private OrderDto orderDto;
-	private SizeDto sizeDto;
+
 	@JsonIgnore
+	private OrderDto orderDto;
+
+	private SizeDto sizeDto;
 	private ProductDto productDto;
 	private int qty;
 
